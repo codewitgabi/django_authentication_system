@@ -24,7 +24,7 @@ class UserForm(forms.ModelForm):
 			}
 		)
 	)
-	password2 = forms.CharField(
+	confirm_password = forms.CharField(
 		widget= forms.PasswordInput(
 			attrs= {
 				"placeholder": "Confirm Password",
@@ -37,7 +37,7 @@ class UserForm(forms.ModelForm):
 			"username",
 			"email",
 			"password",
-			"password2"
+			"confirm_password"
 		]
 		
 	def clean_username(self, *args, **kwargs):

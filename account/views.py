@@ -11,7 +11,7 @@ def signup(request):
 			print(form.cleaned_data)
 			username = form.cleaned_data.get("username")
 			password1 = form.cleaned_data.get("password")
-			password2 = form.cleaned_data.get("password2")
+			password2 = form.cleaned_data.get("confirm_password")
 			
 			if password1 == password2:
 				form = form.save(commit= False)

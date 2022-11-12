@@ -9,7 +9,7 @@ def customer_referral_link(sender, instance, created, **kwargs):
 	if created:
 		# create referral link for user
 		string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-		random_code = instance.username + "".join(random.choices(string, k= 4))
+		random_code = instance.username.upper() + "".join(random.choices(string, k= 4))
 		referral_code = Referral.objects.create(
 			user= instance,
 			referral_code= random_code
