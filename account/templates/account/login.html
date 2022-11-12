@@ -1,0 +1,28 @@
+{% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %} Sign In {% endblock %}
+
+
+{% block content %}
+
+	{% if messages %}
+		{% for message in messages %}
+			<div class= "alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endif %}
+	<legend>Login</legend>
+	<div>
+		<form action="" method="post">
+		{% csrf_token %}
+			{{ form|crispy }}
+			<a href= "">forgot password?</a>
+			<br><br>
+			<button  type="submit" class= "btn btn-primary form-control">Login</button>
+			<span>Not signed up yet?</span>
+			<a href="{% url 'account:signup' %}">Signup</a>
+		</form>
+	</div>
+
+{% endblock %}
