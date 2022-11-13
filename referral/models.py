@@ -13,6 +13,8 @@ class Referral(models.Model):
 class ReferralNotification(models.Model):
 	user = models.ForeignKey(User, on_delete= models.CASCADE, blank= True, null= True)
 	message = models.CharField(max_length= 200)
+	date_created = models.DateTimeField(auto_now= True)
+	seen = models.BooleanField(default= False)
 	
 	def __str__(self):
 		return self.message

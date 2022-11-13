@@ -19,6 +19,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", include("main.urls")),
     path("account/", include("account.urls")),
     path("referral/", include("referral.urls")),
     path("password_reset/",

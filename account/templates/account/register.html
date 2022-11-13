@@ -17,6 +17,12 @@
 		<form action="" method="post">
 		{% csrf_token %}
 			{{ form|crispy }}
+			
+			{% if page == "from_referral" %}
+			<label for= "ref_code">Referral Code*</label>
+			<input class= "form-control" type= "text" placeholder= "Referral Code" id= "ref_code" name= "ref_code" required value= "{{ referral_code }}">
+			{% endif %}
+			
 			<br>
 			<button type="submit" class= "btn btn-secondary form-control">Signup</button>
 		</form>

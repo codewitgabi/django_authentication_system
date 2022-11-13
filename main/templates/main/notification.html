@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% block title %} Notification {% endblock %}
+
+
+{% block content %}
+
+	<div class= "container">
+	<br>
+		<h2 align= "center">Notifications</h2>
+		{% if notifications %}
+			{% for notification in notifications %}
+				<div class= "alert alert-info">
+					{{ notification }}
+					<br>
+					<span>{{ notification.date_created }}</span>
+				</div>
+			{% endfor %}
+		{% else %}
+			<div class= "alert alert-info">
+				You have no notification.
+			</div>
+		{% endif %}
+	</div>
+
+{% endblock %}
