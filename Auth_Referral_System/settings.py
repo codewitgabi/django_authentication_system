@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "account.apps.AccountConfig",
     "referral.apps.ReferralConfig",
+    "main.apps.MainConfig",
     "crispy_forms",
 ]
 
@@ -108,7 +109,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 # User Model
 
 AUTH_USER_MODEL = "account.User"
-LOGIN_REDIRECT_URL = "account:signup"
+LOGIN_REDIRECT_URL = "main:index"
 LOGIN_URL = "account:login"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
