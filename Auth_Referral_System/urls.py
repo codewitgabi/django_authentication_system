@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("main.urls")),
     path("account/", include("account.urls")),
+    path("account2/", include("account2.urls")),
     path("referral/", include("referral.urls")),
     path("password_reset/",
 		auth_views.PasswordResetView.as_view(

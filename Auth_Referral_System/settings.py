@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "account.apps.AccountConfig",
+    "account2.apps.Account2Config",
     "referral.apps.ReferralConfig",
     "main.apps.MainConfig",
     "crispy_forms",
