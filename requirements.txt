@@ -1,3 +1,4 @@
 django>=3.2
 django_crispy_forms
 Django-Verify-Email
+django-decouple
