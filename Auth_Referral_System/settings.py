@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "referral.apps.ReferralConfig",
     "main.apps.MainConfig",
     "crispy_forms",
+    "verify_email.apps.VerifyEmailConfig",
 ]
 
 MIDDLEWARE = [
@@ -116,9 +117,10 @@ LOGIN_URL = "account:login"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = "587"
-EMAIL_HOST_USER = "" # your email
-EMAIL_HOST_PASSWORD = "" # app password
+EMAIL_HOST_USER = config("EMAIL_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_PASSWORD")
 EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "DjangoAuth<no_reply@domain.com>"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

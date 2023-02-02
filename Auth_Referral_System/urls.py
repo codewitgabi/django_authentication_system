@@ -23,6 +23,8 @@ urlpatterns = [
     path("account/", include("account.urls")),
     path("account2/", include("account2.urls")),
     path("referral/", include("referral.urls")),
+    # verification url
+    path('verification/', include('verify_email.urls')),
     path("password_reset/",
 		auth_views.PasswordResetView.as_view(
 			template_name= "account/password-reset.html"
