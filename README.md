@@ -30,9 +30,6 @@ Follow the instructions on the page and after you are done go to step 2
 
 ### Package Documentation
 [Django-Email-Verification](https://pypi.org/project/Django-Verify-Email/)
-
 [Social Login](https://python-social-auth.readthedocs.io/en/latest/configuration/django.html)
-
 * [Facebook Backend](https://python-social-auth.readthedocs.io/en/latest/backends/facebook.html#oauth2)
-
 * [GitHub Backend](https://python-social-auth.readthedocs.io/en/latest/backends/github.html)
