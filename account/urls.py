@@ -20,4 +20,8 @@ urlpatterns = [
 		template_name= "account/logout.html"),
 		name= "logout"
 	),
+	path("settings/", settings_view, name='settings'),
+	path("settings/password/",
+		settings_password_change,
+		name="settings_password_change"),
 ]

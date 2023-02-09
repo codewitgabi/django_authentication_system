@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "main.apps.MainConfig",
     "crispy_forms",
     "verify_email.apps.VerifyEmailConfig",
+    "social_django",
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    # add this for social login
+    "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
 
 ROOT_URLCONF = 'Auth_Referral_System.urls'
@@ -107,22 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
-
-# User Model
-
-AUTH_USER_MODEL = "account.User"
-LOGIN_REDIRECT_URL = "main:index"
-LOGIN_URL = "account:login"
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = "587"
-EMAIL_HOST_USER = config("EMAIL_USER")
-EMAIL_HOST_PASSWORD = config("EMAIL_PASSWORD")
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = "DjangoAuth<no_reply@domain.com>"
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -147,3 +135,54 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+# User Model
+
+AUTH_USER_MODEL = "account.User"
+LOGIN_REDIRECT_URL = "main:index"
+LOGIN_URL = "account:login"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = "587"
+EMAIL_HOST_USER = config("EMAIL_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_PASSWORD")
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "DjangoAuth<no_reply@domain.com>"
+
+AUTHENTICATION_BACKENDS = [
+	"social_core.backends.facebook.FacebookOAuth2",
+	"social_core.backends.google.GoogleOAuth2",
+	"social_core.backends.github.GithubOAuth2",
+	"django.contrib.auth.backends.ModelBackend",
+]
+
+SOCIAL_AUTH_FACEBOOK_KEY = config("FACEBOOK_KEY")
+SOCIAL_AUTH_FACEBOOK_SECRET = config("FACEBOOK_SECRET")
+SOCIAL_AUTH_GITHUB_KEY = config("GITHUB_KEY")
+SOCIAL_AUTH_GITHUB_SECRET= config("GITHUB_SECRET")
+
+SOCIAL_AUTH_LOGIN_ERROR_URL = "account:settings"
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "account:login"
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
+#SOCIAL_AUTH_GITHUB_SCOPE = ["email"]
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+	"fields": "id, name, email"
+}
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.social_auth.associate_by_email',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)

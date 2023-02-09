@@ -4,15 +4,30 @@
 
 
 {% block content %}
-
+	<div class="col-12 mt-3">
+		<a href="{% url 'social:begin' 'facebook' %}">
+			<button style="color: #fff;" class="btn btn-primary w-100">
+				Continue With Facebook
+			</button>
+		</a>
+	</div>
+	<div class="col-12 mt-3">
+		<a href="{% url 'social:begin' 'github' %}">
+			<button style="color: #fff;" class="btn btn-secondary w-100">
+				Continue With GitHub
+			</button>
+		</a>
+	</div>
+	<br>
+	
 	<legend>Signup</legend>
-		{% if messages %}
-			{% for message in messages %}
-				<div class= "alert alert-danger">
-					{{ message }}
-				</div>
-			{% endfor %}
-		{% endif %}
+	{% if messages %}
+		{% for message in messages %}
+			<div class= "alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endif %}
 	<div>
 		<form action="" method="post">
 		{% csrf_token %}
