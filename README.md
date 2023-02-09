@@ -29,7 +29,7 @@ Follow the instructions on the page and after you are done go to step 2
 * visit [Display unlock captcha](https://accounts.google.com/b/0/displayunlockcaptcha)
 
 ### Package Documentation
-[Django-Email-Verification](https://pypi.org/project/Django-Verify-Email/)
+[Django-Email-Verification](https://pypi.org/project/Django-Verify-Email/)\
 [Social Login](https://python-social-auth.readthedocs.io/en/latest/configuration/django.html)
 * [Facebook Backend](https://python-social-auth.readthedocs.io/en/latest/backends/facebook.html#oauth2)
 * [GitHub Backend](https://python-social-auth.readthedocs.io/en/latest/backends/github.html)
