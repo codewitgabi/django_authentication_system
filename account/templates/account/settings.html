@@ -26,6 +26,8 @@
 		<a href="{% url 'social:begin' 'github' %}">Connect to GitHub</a>
 	{% endif %}
 	
+	<hr>
+	
 	{% if twitter_login %}
 		<h3>Twitter</h3>
 		<p>Connected as 
@@ -44,6 +46,8 @@
 	{% else %}
 		<a href="{% url 'social:begin' 'twitter' %}">Connect to Twitter</a>
 	{% endif %}
+	
+	<hr>
 
 	{% if facebook_login %}
 		<h3>Facebook</h3>

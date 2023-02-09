@@ -21,7 +21,7 @@ urlpatterns = [
 		name= "logout"
 	),
 	path("settings/", settings_view, name='settings'),
-	path("settings/password/",
+	path("settings/change-password/",
 		settings_password_change,
 		name="settings_password_change"),
 ]

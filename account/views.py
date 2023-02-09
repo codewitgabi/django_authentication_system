@@ -115,7 +115,7 @@ def settings_password_change(request):
 		else:
 			messages.error(request, 'Please correct the error below.')
 	return render(request,
-		'account/settings-password-change.html',
+		'account/settings-change-password.html',
 		{'form': form})
 	
 	
