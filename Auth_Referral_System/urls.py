@@ -8,6 +8,7 @@ urlpatterns = [
     path("", include("main.urls")),
     path("account/", include("account.urls")),
     path("referral/", include("referral.urls")),
+    path("api/", include("api.urls")),
     # email verification url
     path('verification/', include('verify_email.urls')),
     path("password_reset/",
